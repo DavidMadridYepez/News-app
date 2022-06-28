@@ -10,7 +10,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/:idcategory' element={<Main default='world' />} />
+          <Route path='/:idcategory' element={<Main />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -26,7 +26,7 @@ function Main() {
 
   return (
     <div>
-      <h1>This is the news</h1>
+      <h1>These are the news</h1>
       {articles && articles.map((a, i) => {
         return (
           <a key={i} href={a.web_url} target='_blank'>
