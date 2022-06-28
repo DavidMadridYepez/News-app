@@ -6,7 +6,7 @@ function Main() {
   const [isLoading, setIsLoading] = useState(true)
   const [articles, setArticles] = useState([])
 
-  const { idcategory, page } = useParams()
+  const { idcategory = 'world' } = useParams()
 
   useEffect(() => {
     const getArticles = async () => {
@@ -27,7 +27,7 @@ function Main() {
   return (
     <div>
       <h1>This is the news</h1>
-      {articles.map((a) => {
+      {articles && articles.map((a) => {
         return (
           <div key={a.title}>
             <Item {...a} />
