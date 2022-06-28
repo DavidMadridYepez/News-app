@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import Item from './item'
 
 function Main() {
   const [isLoading, setIsLoading] = useState(true)
   const [articles, setArticles] = useState([])
 
+  const { idcategory, page } = useParams()
+
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=world&sortBy=popularity&apiKey=a3bfb7c1c04e4f3095dbdedd443252d9`)
+      const response = await fetch(`https://newsapi.org/v2/everything?q=${idcategory}&sortBy=popularity&apiKey=a3bfb7c1c04e4f3095dbdedd443252d9`)
       const news = await response.json()
       setArticles(news.articles)
       setIsLoading(false)
     }
     getArticles()
-  }, [])
+  }, [idcategory])
 
   if (isLoading) {
     <div>
