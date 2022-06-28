@@ -10,9 +10,9 @@ function Main() {
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=${idcategory}&sortBy=popularity&apiKey=a3bfb7c1c04e4f3095dbdedd443252d9`)
+      const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=economy&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`)
       const news = await response.json()
-      setArticles(news.articles)
+      setArticles(news.response.docs)
       setIsLoading(false)
     }
     getArticles()
@@ -27,9 +27,9 @@ function Main() {
   return (
     <div>
       <h1>This is the news</h1>
-      {articles && articles.map((a) => {
+      {articles && articles.map((a, i) => {
         return (
-          <div key={a.title}>
+          <div key={i}>
             <Item {...a} />
           </div>
         )

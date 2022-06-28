@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Item({ title, author, description, source, url, urlToImage, publishedAt, }) {
+function Item({ byline, web_url, lead_paragraph, multimedia, headline, pub_date }) {
   return (
     <div className='p-5'>
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <p>{author}+{publishedAt}</p>
+      <h1 className='text-2xl'>{headline.main}</h1>
+      <p>{lead_paragraph}</p>
+      <p>{pub_date}</p>
     </div>
   )
 }
