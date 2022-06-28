@@ -10,7 +10,7 @@ function Main() {
 
   useEffect(() => {
     const getArticles = async () => {
-      const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=economy&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`)
+      const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${idcategory}&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`)
       const news = await response.json()
       setArticles(news.response.docs)
       setIsLoading(false)
@@ -29,9 +29,9 @@ function Main() {
       <h1>This is the news</h1>
       {articles && articles.map((a, i) => {
         return (
-          <div key={i}>
+          <a key={i} href={a.web_url} target='_blank'>
             <Item {...a} />
-          </div>
+          </a>
         )
       })}
     </div>
