@@ -4,26 +4,30 @@ import Footer from './components/footer'
 import Main from './components/main'
 import Navbar from './components/navbar'
 import { ThemeContext } from './components/context'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
 
 function App() {
   const [theme, setTheme] = useState(true)
   const handleThemeChange = () => {
     setTheme(!theme);
   }
+  const queryClient = new QueryClient()
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>
-        <BrowserRouter>
-          <Navbar onThemeChange={handleThemeChange} />
-          <Routes>
-            <Route path='/' element={<Main />} />
-            <Route path='/:idcategory' element={<Main />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </ThemeContext.Provider>
-
+      <QueryClientProvider client={queryClient}>
+        <ThemeContext.Provider value={theme}>
+          <BrowserRouter>
+            <Navbar onThemeChange={handleThemeChange} />
+            <Routes>
+              <Route path='/' element={<Main />} />
+              <Route path='/:idcategory' element={<Main />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </ThemeContext.Provider>
+      </QueryClientProvider>
     </>
   )
 }
