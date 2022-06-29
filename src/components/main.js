@@ -19,15 +19,17 @@ function Main() {
   }, [idcategory])
 
   if (isLoading) {
-    <div>
-      Almost there!...
-    </div>
+    return (
+      <div>
+        Almost there!...
+      </div>
+    )
   }
 
   return (
     <div>
       <h1>These are the news</h1>
-      {articles && articles.map((a, i) => {
+      {articles.map((a, i) => {
         return (
           <a key={i} href={a.web_url} target='_blank'>
             <Item {...a} />
