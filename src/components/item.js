@@ -7,11 +7,11 @@ function Item({ byline, lead_paragraph, headline, pub_date, multimedia }) {
   const theme = useContext(ThemeContext)
 
   return (
-    <div className={`p-5 flex ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
-      <div className='w-1/2'>
-        {img ? (<img className='' src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='w-20 h-20 bg-blue-500'>Loading...</div>)}
+    <div className={`p-5 space-x-5 flex ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <div className='w-1/2 border-2 border-black'>
+        {img ? (<img src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='w-20 h-20 bg-blue-500'>Loading...</div>)}
       </div>
-      <div className='w-1/2'>
+      <div className='w-1/2 border border-black'>
         <h1 className='text-2xl'>{headline.main}</h1>
         <p>{lead_paragraph}</p>
         <p><span>{getDateFrom(pub_date)}</span><span>{byline.original}</span></p>
