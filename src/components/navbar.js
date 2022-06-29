@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ThemeContext } from './context'
 
-function Navbar({ onThemeChange, theme }) {
+function Navbar({ onThemeChange }) {
+  const theme = useContext(ThemeContext)
   return (
     <>
       <div className={theme ? 'bg-black text-white' : 'bg-white text-black'}>

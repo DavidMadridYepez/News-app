@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Item from './item'
+import { ThemeContext } from './context'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 
 function Main() {
   const [isLoading, setIsLoading] = useState(true)
   const [articles, setArticles] = useState([])
-
+  const theme = useContext(ThemeContext)
   const { idcategory = 'world' } = useParams()
 
   useEffect(() => {
@@ -27,8 +29,8 @@ function Main() {
   }
 
   return (
-    <div>
-      <h1>These are the news</h1>
+    <div className={theme ? 'bg-black text-white' : 'bg-white text-black'}>
+      <h1>TOP NEWS!</h1>
       {articles.map((a, i) => {
         return (
           <a key={i} href={a.web_url} target='_blank'>
@@ -40,5 +42,4 @@ function Main() {
   )
 }
 
-export default Main
-
+export default Main;

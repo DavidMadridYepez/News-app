@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ThemeContext } from './context'
 
 function Footer() {
+  const theme = useContext(ThemeContext)
   return (
-    <div>
+    <div className={theme ? 'bg-black text-white' : 'bg-white text-black'}>
       <div>
         <NavLink to='/'>World</NavLink>
         <NavLink to='/economy'>Economy</NavLink>

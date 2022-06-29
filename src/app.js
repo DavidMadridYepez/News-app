@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/footer'
 import Main from './components/main'
 import Navbar from './components/navbar'
+import { ThemeContext } from './components/context'
 
 function App() {
   const [theme, setTheme] = useState(true)
@@ -12,16 +13,21 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar onThemeChange={handleThemeChange} theme={theme} />
-        <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path='/:idcategory' element={<Main />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <ThemeContext.Provider value={theme}>
+        <BrowserRouter>
+          <Navbar onThemeChange={handleThemeChange} />
+          <Routes>
+            <Route path='/' element={<Main />} />
+            <Route path='/:idcategory' element={<Main />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeContext.Provider>
+
     </>
   )
 }
 
 export default App
+
+//I need to implement useParamas, Context and React Query!
