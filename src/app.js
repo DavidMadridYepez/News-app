@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 
 function App() {
-  const [theme, setTheme] = useState(true)
+  const [theme, setTheme] = useState(false)
   const handleThemeChange = () => {
     setTheme(!theme);
   }

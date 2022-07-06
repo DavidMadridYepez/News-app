@@ -7,15 +7,18 @@ function Item({ byline, lead_paragraph, headline, pub_date, multimedia }) {
   const theme = useContext(ThemeContext)
 
   return (
-    <div className={`p-5 space-x-5 flex ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
-      <div className='w-1/2 border-2 border-black'>
-        {img ? (<img src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='w-20 h-20 bg-blue-500'>Loading...</div>)}
+    <div className={`py-8 px-3 md:p-5 md:space-x-5 md:flex ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <div className='md:w-1/2'>
+        {img ? (<img src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='flex items-center justify-center p-10 w-full h-full bg-blue-100'>Loading...</div>)}
       </div>
-      <div className='w-1/2 border border-black'>
-        <h1 className='text-2xl'>{headline.main}</h1>
-        <p>{lead_paragraph}</p>
-        <p><span>{getDateFrom(pub_date)}</span><span>{byline.original}</span></p>
+      <div className='md:w-1/2 flex flex-col space-y-5 justify-between'>
+        <div className='space-y-5'>
+          <h1 className='text-2xl'>{headline.main}</h1>
+          <p className={`${theme ? 'text-gray-300' : 'text-gray-600'}`}>{lead_paragraph}</p>
+        </div>
+        <p className={`${theme ? 'text-gray-300' : 'text-gray-600'}`}><span>{getDateFrom(pub_date)}</span><span>{byline.original}</span></p>
       </div>
+      <div className={`border mt-5 md:border-none ${theme ? 'border-gray-300' : 'border-gray-600'}`}></div>
     </div>
   )
 }
