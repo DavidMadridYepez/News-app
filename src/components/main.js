@@ -34,7 +34,7 @@ function Main() {
   }
 
   return (
-    <div className={`md:px-60 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <div className={`xl:px-60 md:px-40 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
       {articles.map((a, i) => {
         return (
           <a key={i} href={a.web_url} target='_blank'>

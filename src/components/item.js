@@ -9,7 +9,7 @@ function Item({ byline, lead_paragraph, headline, pub_date, multimedia }) {
   return (
     <div className={`py-8 px-3 md:p-5 md:space-x-5 md:flex ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <div className='md:w-1/2'>
-        {img ? (<img src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='flex items-center justify-center p-10 w-full h-full bg-blue-100'>Loading...</div>)}
+        {img ? (<img className='h-full' src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='flex items-center justify-center p-10 w-full h-full bg-blue-100'>Loading...</div>)}
       </div>
       <div className='md:w-1/2 flex flex-col space-y-5 justify-between'>
         <div className='space-y-5'>
