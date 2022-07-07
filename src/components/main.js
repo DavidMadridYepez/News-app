@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Item from './item'
 import { ThemeContext } from './context'
-import { useQuery } from 'react-query'
-
 
 function Main() {
   const [articles, setArticles] = useState([])
@@ -11,10 +9,6 @@ function Main() {
   const theme = useContext(ThemeContext)
   const { idcategory = 'world' } = useParams()
 
-  /*  const { isLoading, error, data } = useQuery(idcategory, async () => {
-      await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${idcategory}&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`)
-    })
-  */
   useEffect(() => {
     const getArticles = async () => {
       const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${idcategory}&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`)
