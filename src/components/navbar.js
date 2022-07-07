@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { ThemeContext } from './context'
 
 function Navbar({ onThemeChange }) {
+
   const theme = useContext(ThemeContext)
 
   return (

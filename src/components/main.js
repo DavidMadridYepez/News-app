@@ -1,43 +1,37 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Item from './item'
 import { ThemeContext } from './context'
+import { useQuery } from 'react-query'
 
-function Main() {
-  const [articles, setArticles] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+const Main = () => {
   const theme = useContext(ThemeContext)
   const { idcategory = 'world' } = useParams()
+  const { data, error, isSuccess } = useQuery(['details', idcategory], () => fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${idcategory}&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`).then(res => res.json()))
 
-  useEffect(() => {
-    const getArticles = async () => {
-      const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${idcategory}&api-key=jj9i4vs1CmT5ytkvn8y3c46QWvonsd8U`)
-      const news = await response.json()
-      setArticles(news.response.docs)
-      setIsLoading(false)
-    }
-    getArticles()
-  }, [idcategory])
+  console.log(data);
 
-  if (isLoading) {
+  if (error) return <div> 'An error has ocurred: '{error.message}</div>
+
+  if (isSuccess && data.response) {
     return (
-      <div>
-        Almost there!...
+      <div className={`xl:px-60 md:px-40 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+        {data.response.docs.map((article, i) => {
+          return (
+            <a key={i} href={article.web_url} target='_blank' rel='noreferrer'>
+              <Item {...article} />
+            </a>
+          )
+        })}
       </div>
     )
   }
 
   return (
-    <div className={`xl:px-60 md:px-40 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
-      {articles.map((a, i) => {
-        return (
-          <a key={i} href={a.web_url} target='_blank'>
-            <Item {...a} />
-          </a>
-        )
-      })}
+    <div>
+      Almost there!...
     </div>
   )
 }
 
-export default Main;
+export default Main 
