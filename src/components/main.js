@@ -28,8 +28,8 @@ const Main = () => {
   }
 
   return (
-    <div>
-      Almost there!...
+    <div className='flex border border-black justify-center h-96 text-4xl items-center'>
+      <h1>Almost there!...</h1>
     </div>
   )
 }
