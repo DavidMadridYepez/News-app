@@ -3,6 +3,7 @@ import { ThemeContext } from '../../utils/context'
 import getDateFrom from '../../utils/dateFormat'
 
 function Item({ byline, lead_paragraph, headline, pub_date, multimedia }) {
+
   const img = multimedia[0] ? (multimedia[0].url) : ('')
   const theme = useContext(ThemeContext)
 
