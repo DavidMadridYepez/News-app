@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import Item from './item'
-import { ThemeContext } from './context'
+import { ThemeContext } from '../utils/context'
 import { useQuery } from 'react-query'
 
 const Main = () => {

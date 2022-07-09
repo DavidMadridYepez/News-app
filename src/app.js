@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Footer from './components/footer'
+import Footer from './layout/footer'
 import Main from './components/main'
-import Navbar from './components/navbar'
-import { ThemeContext } from './components/context'
+import Navbar from './layout/navbar'
+import { ThemeContext } from './utils/context'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
@@ -43,4 +43,3 @@ function App() {
 
 export default App
 
-//I need to implement useParamas, Context and React Query!

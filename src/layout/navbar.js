@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { ThemeContext } from './context'
+import { ThemeContext } from '../utils/context'
 
 function Navbar({ onThemeChange }) {
 

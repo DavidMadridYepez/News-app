@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from './context'
+import { ThemeContext } from '../../utils/context'
+import getDateFrom from '../../utils/dateFormat'
 
 function Item({ byline, lead_paragraph, headline, pub_date, multimedia }) {
-  const getDateFrom = date => new Date(date).toDateString()
   const img = multimedia[0] ? (multimedia[0].url) : ('')
   const theme = useContext(ThemeContext)
 
