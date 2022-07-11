@@ -15,7 +15,7 @@ function Main() {
 
   if (isSuccess && data.response) {
     return (
-      <div className={`font-serif xl:px-80 md:px-60 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <div className={`font-serif xl:px-80 md:px-60 ${theme ? 'bg-neutral-900 text-white' : 'bg-white text-black'}`}>
         {data.response.docs.map((article, i) => {
           return (
             <a key={i} href={article.web_url} target='_blank' rel='noreferrer'>

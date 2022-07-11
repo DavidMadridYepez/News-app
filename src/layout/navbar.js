@@ -7,7 +7,7 @@ function Navbar({ onThemeChange }) {
   const theme = useContext(ThemeContext)
 
   return (
-    <div className={`font-serif p-3 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <div className={`font-serif p-3 ${theme ? 'bg-neutral-900 text-white' : 'bg-white text-black'}`}>
       <div className={`flex justify-center space-x-10 py-10 border-b-8 ${theme ? 'border-white' : 'border-black'}`}>
         <h1 className='text-5xl'>MR NEWS</h1>
         <button onClick={onThemeChange}>

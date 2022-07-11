@@ -11,7 +11,7 @@ function Item({ byline, lead_paragraph, headline, pub_date, multimedia }) {
     <>
       <div className={`px-3 py-10 md:space-x-5 md:flex space-y-2 md:space-y-0${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
         <div className='md:w-1/2'>
-          {img ? (<img className='h-full' src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='flex items-center justify-center p-10 w-full h-full bg-blue-100'>Loading...</div>)}
+          {img ? (<img className='h-full' src={'https://www.nytimes.com/' + img} alt="No description" />) : (<div className='flex items-center justify-center p-10 w-full h-full bg-purple-100'><img src="./images/load.png" alt="" /></div>)}
         </div>
         <div className='md:w-1/2 flex flex-col space-y-5 justify-between'>
           <div className='space-y-5'>
