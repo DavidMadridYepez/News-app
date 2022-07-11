@@ -6,6 +6,7 @@ import Navbar from './layout/navbar'
 import { ThemeContext } from './utils/context'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import NoRouteMatched from './components/errors/noRoute'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Main />} />
               <Route path='/:idcategory' element={<Main />} />
+              <Route path='*' element={<NoRouteMatched />} />
             </Routes>
             <Footer />
           </BrowserRouter>
