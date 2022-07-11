@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 function Footer() {
   return (
-    <div className='pt-20 p-10 space-y-20 bg-black text-white'>
+    <div className='font-serif pt-20 p-10 space-y-20 bg-black text-white'>
       <div className='flex justify-center space-x-7 md:space-x-10'>
         <NavLink className='hover:scale-125 duration-100' to='/'>World</NavLink>
         <NavLink className='hover:scale-125 duration-100' to='/economy'>Economy</NavLink>
