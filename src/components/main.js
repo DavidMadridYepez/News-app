@@ -28,8 +28,8 @@ function Main() {
   }
 
   return (
-    <div className='flex border border-black justify-center h-96 text-4xl items-center'>
-      <h1>Almost there!...</h1>
+    <div className='flex border border-black justify-center space-x-10 h-96 text-4xl items-center'>
+      <img className='w-32' src="../images/airplane.gif" alt="" />
     </div>
   )
 }
