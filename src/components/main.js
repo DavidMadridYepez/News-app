@@ -15,7 +15,7 @@ function Main() {
 
   if (isSuccess && data.response) {
     return (
-      <div className={`font-serif xl:px-60 md:px-40 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <div className={`font-serif xl:px-80 md:px-60 ${theme ? 'bg-black text-white' : 'bg-white text-black'}`}>
         {data.response.docs.map((article, i) => {
           return (
             <a key={i} href={article.web_url} target='_blank' rel='noreferrer'>
@@ -28,7 +28,7 @@ function Main() {
   }
 
   return (
-    <div className='flex border border-black justify-center space-x-10 h-96 text-4xl items-center'>
+    <div className='flex justify-center space-x-10 h-96 text-4xl items-center'>
       <img className='w-32' src="../images/airplane.gif" alt="" />
     </div>
   )
