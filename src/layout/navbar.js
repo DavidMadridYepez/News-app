@@ -14,7 +14,7 @@ function Navbar({ onThemeChange }) {
           {theme ? <img className='w-7' src='./images/sun (1).png' alt='' /> : <img className='w-7' src='./images/moon.png' alt='' />}
         </button>
       </div>
-      <div className='text-lg flex py-10 justify-center space-x-7 md:space-x-10 h-full'>
+      <div className='text-lg flex py-10 justify-center space-x-5 md:space-x-10 h-full'>
         <NavLink className={({ isActive }) => isActive ? 'scale-110 duration-100' : 'hover:scale-110 duration-100'} to='/'>World</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'scale-110 duration-100' : 'hover:scale-110 duration-100'} to='/economy'>Economy</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'scale-110 duration-100' : 'hover:scale-110 duration-100'} to='/politics'>Politics</NavLink>
